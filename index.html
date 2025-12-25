@@ -436,8 +436,10 @@
                   <div class="form-floating">
                     <input id="manageDuties" name="manageDuties" type="text" class="form-control"
                       placeholder="Q7. How would you manage and deal with your positions duties and responsibilities?">
-                    <label for="manageDuties">Q7. How would you manage and deal with your positions duties and responsibilities? (Write a
-                      minimum 100-150 words paragraph briefly describing how you would handle the responsibilities.)</label>
+                    <label for="manageDuties">Q7. How would you manage and deal with your positions duties and
+                      responsibilities? (Write a
+                      minimum 100-150 words paragraph briefly describing how you would handle the
+                      responsibilities.)</label>
                   </div>
                 </div>
 
@@ -605,7 +607,7 @@
       submitBtn1.addEventListener('click', async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(form);
+        const formData = new FormData(form1);
         const data = Object.fromEntries(formData);
 
         const webhook = 'https://discord.com/api/webhooks/1422622619202621482/S3mhNz0vqeWTaYMofSCJOTWzbThbDs5whV_-Ngb36T0l3G4Z0nr5YhOioIemY1AidlK7';
@@ -642,7 +644,7 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ embeds: [embed] })
           });
-          
+
           if (response.ok) {
             alert('Application submitted successfully!');
             const modalInstance = bootstrap.Modal.getInstance(document.getElementById('hicom-modal'));
@@ -700,6 +702,4 @@
     </div>
   </footer>
 </body>
-
 </html>
-
