@@ -355,7 +355,7 @@
         });
         alert('Application submitted successfully!');
         bootstrap.Modal.getInstance(document.getElementById('gameadmin-modal')).hide();
-        form.reset();
+        form2.reset();
       } catch (error) {
         console.error('Error:', error);
       }
@@ -598,56 +598,67 @@
   </main1>
 
   <script>
-    const form = document.querySelector('#hicom-modal form');
-    const submitBtn = document.querySelector('#hicom-modal button[type="submit"]');
+    const form1 = document.querySelector('#hicom-modal form');
+    const submitBtn1 = document.querySelector('#hicom-modal button[type="submit"]');
 
-    submitBtn.addEventListener('click', async (e) => {
-      e.preventDefault();
+    if (form1 && submitBtn1) {
+      submitBtn1.addEventListener('click', async (e) => {
+        e.preventDefault();
 
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
 
-      const webhook = 'https://discord.com/api/webhooks/1422622619202621482/S3mhNz0vqeWTaYMofSCJOTWzbThbDs5whV_-Ngb36T0l3G4Z0nr5YhOioIemY1AidlK7';
+        const webhook = 'https://discord.com/api/webhooks/1422622619202621482/S3mhNz0vqeWTaYMofSCJOTWzbThbDs5whV_-Ngb36T0l3G4Z0nr5YhOioIemY1AidlK7';
 
-      const embed = {
-        color: 0x000000,
-        title: 'HICOM Department Application',
-        fields: [
-          { name: 'Q1. What is your Discord Username?', value: data.discordUsername || 'N/A', inline: true },
-          { name: 'Q2. What is your ROBLOX Username?', value: data.robloxUsername || 'N/A', inline: true },
-          { name: 'Q3. What is your time zone?', value: data.timezone || 'N/A', inline: true },
-          { name: 'Q4. Which position you are applying for?', value: data.position || 'N/A', inline: true },
-          { name: 'Q5. Tell us more about yourself', value: data.aboutYourself || 'N/A', inline: false },
-          { name: 'Q6. Why are you interested in the position you selected previously?', value: data.interest || 'N/A', inline: false },
-          { name: 'Q7. How would you manage and deal with your positions duties and responsibilities?', value: data.manageDuties || 'N/A', inline: false },
-          { name: 'Q8. Take a moment and reflect in your life. Everyone in life faces hardships and difficulties. Describe an experience where you were successful overcoming adversities', value: data.adversity || 'N/A', inline: false },
-          { name: 'Q9. Do you have any previous knowledge or experience(s) about the position?', value: data.hasPriorExperience || 'N/A', inline: true },
-          { name: 'Q10. If the previous question was "Yes, I do", please provide any experience(s) or knowledge that YOU have about regarding the above question', value: data.priorExperience || 'N/A', inline: false },
-          { name: 'Q11. How could you work with other departments in Al427_RBLX Studios?', value: data.workWithDepartments || 'N/A', inline: false },
-          { name: 'Q12. Did anyone recommend you to the position?', value: data.wasRecommended || 'N/A', inline: true },
-          { name: 'Q13. From 1-10, how do you scale your overall ABILITIES, SKILLS, and PROFESSIONAL demeanor?', value: data.abilitiesRating || 'N/A', inline: true },
-          { name: 'Q14. From 1-10, how do you scale your GRAMMAR?', value: data.grammarRating || 'N/A', inline: true },
-          { name: 'Q15. From 1-10, how do you scale your ABILITY to handle difficult situations that you might encounter?', value: data.difficultSituationsRating || 'N/A', inline: true },
-          { name: 'Do you understand that this Form could be ACCEPTED, DENIED, nor you could RECEIVE any type of response back', value: data.understandsAcceptDeny || 'N/A', inline: true },
-          { name: 'Do you understand you must INTERVIEW for this position you are applied for', value: data.understandsInterview || 'N/A', inline: true },
-          { name: 'Electronic Signature', value: data.signature || 'N/A', inline: true },
-        ],
-        timestamp: new Date()
-      };
+        const embed = {
+          color: 0x000000,
+          title: 'HICOM Department Application',
+          fields: [
+            { name: 'Q1. What is your Discord Username?', value: data.discordUsername || 'N/A', inline: true },
+            { name: 'Q2. What is your ROBLOX Username?', value: data.robloxUsername || 'N/A', inline: true },
+            { name: 'Q3. What is your time zone?', value: data.timezone || 'N/A', inline: true },
+            { name: 'Q4. Which position you are applying for?', value: data.position || 'N/A', inline: true },
+            { name: 'Q5. Tell us more about yourself', value: data.aboutYourself || 'N/A', inline: false },
+            { name: 'Q6. Why are you interested in the position you selected previously?', value: data.interest || 'N/A', inline: false },
+            { name: 'Q7. How would you manage and deal with your positions duties and responsibilities?', value: data.manageDuties || 'N/A', inline: false },
+            { name: 'Q8. Take a moment and reflect in your life. Everyone in life faces hardships and difficulties. Describe an experience where you were successful overcoming adversities', value: data.adversity || 'N/A', inline: false },
+            { name: 'Q9. Do you have any previous knowledge or experience(s) about the position?', value: data.hasPriorExperience || 'N/A', inline: true },
+            { name: 'Q10. If the previous question was "Yes, I do", please provide any experience(s) or knowledge that YOU have about regarding the above question', value: data.priorExperience || 'N/A', inline: false },
+            { name: 'Q11. How could you work with other departments in Al427_RBLX Studios?', value: data.workWithDepartments || 'N/A', inline: false },
+            { name: 'Q12. Did anyone recommend you to the position?', value: data.wasRecommended || 'N/A', inline: true },
+            { name: 'Q13. From 1-10, how do you scale your overall ABILITIES, SKILLS, and PROFESSIONAL demeanor?', value: data.abilitiesRating || 'N/A', inline: true },
+            { name: 'Q14. From 1-10, how do you scale your GRAMMAR?', value: data.grammarRating || 'N/A', inline: true },
+            { name: 'Q15. From 1-10, how do you scale your ABILITY to handle difficult situations that you might encounter?', value: data.difficultSituationsRating || 'N/A', inline: true },
+            { name: 'Do you understand that this Form could be ACCEPTED, DENIED, nor you could RECEIVE any type of response back', value: data.understandsAcceptDeny || 'N/A', inline: true },
+            { name: 'Do you understand you must INTERVIEW for this position you are applied for', value: data.understandsInterview || 'N/A', inline: true },
+            { name: 'Electronic Signature', value: data.signature || 'N/A', inline: true },
+          ],
+          timestamp: new Date().toISOString()
+        };
 
-      try {
-        await fetch(webhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ embeds: [embed] })
-        });
-        alert('Application submitted successfully!');
-        bootstrap.Modal.getInstance(document.getElementById('hicom-modal')).hide();
-        form.reset();
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    });
+        try {
+          const response = await fetch(webhook, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ embeds: [embed] })
+          });
+          
+          if (response.ok) {
+            alert('Application submitted successfully!');
+            const modalInstance = bootstrap.Modal.getInstance(document.getElementById('hicom-modal'));
+            if (modalInstance) {
+              modalInstance.hide();
+            }
+            form1.reset();
+          } else {
+            throw new Error('Failed to submit application');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Failed to submit application. Please try again.');
+        }
+      });
+    }
   </script>
 
   <footer class="bg-dark text-light py-4">
